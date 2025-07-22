@@ -1,9 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request
 import sqlite3
 
 app = Flask(__name__)
-init_db()
-# Create DB table
+
+# ✅ Always initialize DB on import
 def init_db():
     conn = sqlite3.connect('dreams.db')
     c = conn.cursor()
@@ -19,6 +19,8 @@ def init_db():
     ''')
     conn.commit()
     conn.close()
+
+init_db()
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -72,5 +74,4 @@ def save_dream(author, original, rewritten, style, tags):
     conn.close()
 
 if __name__ == '__main__':
-    init_db()
     app.run(debug=True)
