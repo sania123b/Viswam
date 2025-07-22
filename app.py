@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 import sqlite3
 
 app = Flask(__name__)
-
+init_db()
 # Create DB table
 def init_db():
     conn = sqlite3.connect('dreams.db')
