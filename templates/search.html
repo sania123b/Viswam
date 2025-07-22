@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <title>🔍 Search Dreams</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <h1 class="text-3xl mb-6">🔍 Search Dreams by Tag</h1>
+  <form method="POST" class="mb-6">
+    <input type="text" name="tag" class="border p-2 rounded w-64" placeholder="Enter tag to search" required>
+    <button type="submit" class="bg-indigo-500 text-white px-4 py-2 rounded hover:bg-indigo-600">Search</button>
+  </form>
+
+  {% if results %}
+    <div class="space-y-4">
+      {% for dream in results %}
+        <div class="bg-white p-4 rounded shadow">
+          <p><strong>Author:</strong> {{ dream[1] }}</p>
+          <p><strong>Original:</strong> {{ dream[2] }}</p>
+          <p><strong>Rewritten:</strong> {{ dream[3] }}</p>
+          <p><strong>Style:</strong> {{ dream[4] }}</p>
+          <p><strong>Tags:</strong> {{ dream[5] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <a href="/" class="inline-block mt-6 text-indigo-600 hover:underline">⬅️ Back to Home</a>
+</body>
+</html>

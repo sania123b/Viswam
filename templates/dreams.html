@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8" />
+  <title>📚 All Dreams</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 p-8">
+  <h1 class="text-3xl mb-6">📚 All Dreams</h1>
+  <div class="space-y-4">
+    {% for dream in dreams %}
+      <div class="bg-white p-4 rounded shadow">
+        <p><strong>Author:</strong> {{ dream[1] }}</p>
+        <p><strong>Original:</strong> {{ dream[2] }}</p>
+        <p><strong>Rewritten:</strong> {{ dream[3] }}</p>
+        <p><strong>Style:</strong> {{ dream[4] }}</p>
+        <p><strong>Tags:</strong> {{ dream[5] }}</p>
+      </div>
+    {% endfor %}
+  </div>
+  <a href="/" class="inline-block mt-6 text-indigo-600 hover:underline">⬅️ Back to Home</a>
+</body>
+</html>
